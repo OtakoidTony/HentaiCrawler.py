@@ -1,3 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+
 class Hitomi:
     def __init__(self, number):
         input_url = 'https://hitomi.la/galleries/' + number + ".html"
