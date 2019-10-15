@@ -18,7 +18,6 @@ setup(
     keywords = "Hentai Crawling Hitomi",
     install_requires = [
         "requests",
-        "BeautifulSoup4",
-        "random"
+        "BeautifulSoup4"
     ]
 )

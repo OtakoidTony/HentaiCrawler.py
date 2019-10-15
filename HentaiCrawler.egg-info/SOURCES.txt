@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+HentaiCrawler/DanbooruApi.py
+HentaiCrawler/HitomiApi.py
+HentaiCrawler/HtvApi.py
+HentaiCrawler/YandereApi.py
+HentaiCrawler/__init__.py
+HentaiCrawler.egg-info/PKG-INFO
+HentaiCrawler.egg-info/SOURCES.txt
+HentaiCrawler.egg-info/dependency_links.txt
+HentaiCrawler.egg-info/requires.txt
+HentaiCrawler.egg-info/top_level.txt
