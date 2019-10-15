@@ -11,7 +11,7 @@ When you use this package, you don't need to any login because this package is j
 * **Yandere**
 
 ## Legal?
-Do you know about IT'S NOT A CRIME IF YOU'RE NOT CAUGHT ?
+Do you know about **IT'S NOT A CRIME IF YOU'RE NOT CAUGHT** ?
 
 ## Hentai!
 Sorry for I am a hentai. 8ㅁ8
