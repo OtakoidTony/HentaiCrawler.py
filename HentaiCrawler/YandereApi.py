@@ -1,3 +1,7 @@
+import requests
+from bs4 import BeautifulSoup
+import random
+
 class YandereApi:
     def __init__(self, tags):
         url = ("https://yande.re/post.json?limit=100&page=" + str(random.randrange(1, 5)) + "&tags=" + tags)
