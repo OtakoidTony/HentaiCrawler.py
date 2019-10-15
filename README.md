@@ -3,7 +3,7 @@
 
 
 ## No Login
-When you use this package, you don't need to any login because this package is just CRAWLER.
+When you use this package, you don't need to any login to use this because this package is just CRAWLER.
 
 ## Supports
 - [x] **Htv**
