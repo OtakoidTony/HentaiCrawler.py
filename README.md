@@ -11,6 +11,7 @@ When you use this package, you don't need to any login to use this because this 
 - [x] **Yandere**
 - [ ] **Hiyobi**
 - [ ] **E-hentai**
+- [ ] **Pixiv**
 
 ## Legal?
 Do you know about **IT'S NOT A CRIME IF YOU'RE NOT CAUGHT** ?
