@@ -1,3 +1,6 @@
+import requests
+from bs4 import BeautifulSoup
+
 class Htv:
     def __init__(self, title):
         title = title.replace(' ', '-')
