@@ -9,6 +9,7 @@ When you use this package, you don't need to any login to use this because this 
 - [x] **Htv**
 - [x] **Hitomi.la**
 - [x] **Yandere**
+- [x] **Danbooru**
 - [ ] **Hiyobi**
 - [ ] **E-hentai**
 - [ ] **Pixiv**
