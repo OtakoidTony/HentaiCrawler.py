@@ -9,6 +9,13 @@ class Hitomi:
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
         res = requests.get(input_url, headers=headers)
         soup = BeautifulSoup(res.content, 'html.parser')
+        print(soup)
+        link = soup.find('a')
+        input_url = link.get('href')
+
+        res = requests.get(input_url, headers=headers)
+        soup = BeautifulSoup(res.content, 'html.parser')
+        
         gallery_info_ul = soup.find_all('ul', attrs={'class': "tags"})
         character_ul = gallery_info_ul[0]
         character_li = character_ul.find_all('li')
