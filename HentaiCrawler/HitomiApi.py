@@ -2,22 +2,23 @@ import requests
 from bs4 import BeautifulSoup
 
 class Hitomi:
-    def __init__(self, number):
+    def getInfo(self, number):
         input_url = 'https://hitomi.la/galleries/' + number + ".html"
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
         res = requests.get(input_url, headers=headers)
         soup = BeautifulSoup(res.content, 'html.parser')
-        print(soup)
         link = soup.find('a')
         input_url = link.get('href')
 
         res = requests.get(input_url, headers=headers)
         soup = BeautifulSoup(res.content, 'html.parser')
-        
+
         gallery_info_ul = soup.find_all('ul', attrs={'class': "tags"})
+        print(gallery_info_ul)
         character_ul = gallery_info_ul[0]
+        print(character_ul)
         character_li = character_ul.find_all('li')
         tags_ul = gallery_info_ul[1]
         tags_li = tags_ul.find_all('li')
@@ -55,3 +56,26 @@ class Hitomi:
         self.cover = cover
         self.artist = artist
         self.type = type
+
+    def searchTag(self, tagPage):
+        if tagPage in ['123', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w','x','y','z']:
+            input_url = "https://hitomi.la/alltags-" + tagPage + ".html"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) '
+                              'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
+            res = requests.get(input_url, headers=headers)
+            soup = BeautifulSoup(res.content, 'html.parser')
+            tags = soup.find("ul", attrs={'class': "posts"})
+            a = tags.find_all('a')
+            tags = tags.find_all('li')
+            tagsReturn = []
+            hrefReturn = []
+            for i in tags:
+                tagsReturn.append(i.text)
+            for i in a:
+                hrefReturn.append("https://hitomi.la"+i.get('href'))
+            print(tagsReturn)
+            print(hrefReturn)
+
+            self.tags = tagsReturn
+            self.href = hrefReturn
