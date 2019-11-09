@@ -105,10 +105,11 @@ class Hitomi:
             returnList.append(temp)
         return returnList
 
+"""
 Hitomi = Hitomi()
 for i in Hitomi.getList("female:loli"):
     print(i)
 
 for i in Hitomi.searchTag('a'):
     print(i)
-
+"""
