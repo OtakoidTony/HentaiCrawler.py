@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 class Hitomi:
     def getInfo(self, number):
         input_url = 'https://hitomi.la/galleries/' + number + ".html"
@@ -58,7 +59,8 @@ class Hitomi:
         self.type = type
 
     def searchTag(self, tagPage):
-        if tagPage in ['123', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w','x','y','z']:
+        if tagPage in ['123', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'm', 'o', 'p', 'q', 'r',
+                       's', 't', 'u', 'v', 'w', 'x', 'y', 'z']:
             input_url = "https://hitomi.la/alltags-" + tagPage + ".html"
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) '
@@ -73,9 +75,40 @@ class Hitomi:
             for i in tags:
                 tagsReturn.append(i.text)
             for i in a:
-                hrefReturn.append("https://hitomi.la"+i.get('href'))
-            print(tagsReturn)
-            print(hrefReturn)
+                hrefReturn.append("https://hitomi.la" + i.get('href'))
+            ReturnList = []
+            i=0
+            while i<len(tagsReturn):
+                temp={}
+                temp['tag']=tagsReturn[i]
+                temp['href']=hrefReturn[i]
+                ReturnList.append(temp)
+                i=i+1
+            return ReturnList
 
-            self.tags = tagsReturn
-            self.href = hrefReturn
+    def getList(self, tag):  # example) tag="female:loli"
+        input_url = "https://ltn.hitomi.la/tag/" + tag + "-all.atom"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) '
+                          'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
+        res = requests.get(input_url, headers=headers)
+        soup = BeautifulSoup(res.content, 'html.parser')
+        entry = []
+        for i in soup.find_all('entry'):
+            entry.append(i)
+        returnList = []
+        for i in entry:
+            temp = {}
+            temp['title'] = i.find('title').text
+            temp['updated'] = i.find('updated').text
+            temp['id'] = i.find('id').text
+            returnList.append(temp)
+        return returnList
+
+Hitomi = Hitomi()
+for i in Hitomi.getList("female:loli"):
+    print(i)
+
+for i in Hitomi.searchTag('a'):
+    print(i)
+
