@@ -1,10 +1,8 @@
 import requests
-from bs4 import BeautifulSoup
 import random
 
 class Gelbooru:
     def __init__(self, tags):
-        # https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tag=loli
         tags = tags.replace(' ', '+')
         url = ("https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=" + tags+"&api_key=anonymous&user_id=9455")
         res = requests.get(url)

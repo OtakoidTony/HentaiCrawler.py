@@ -59,6 +59,23 @@ class Hitomi:
         self.type = type
 
     def searchTag(self, tagPage):
+        """
+        Get tags list with alphabet or '123'.
+
+        Parameters
+        ----------
+        tagPage : string
+            '123', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+
+        Returns
+        -------
+        ReturnList : dictionary
+            {
+                'tag': tag,
+                'href': href
+            }
+
+        """
         if tagPage in ['123', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'm', 'o', 'p', 'q', 'r',
                        's', 't', 'u', 'v', 'w', 'x', 'y', 'z']:
             input_url = "https://hitomi.la/alltags-" + tagPage + ".html"
@@ -85,8 +102,30 @@ class Hitomi:
                 ReturnList.append(temp)
                 i=i+1
             return ReturnList
+        
+    
+    def getList(self, tag):
+        """
+        Get galleries list with hitomi.la tag
+        
+        Parameters
+        ----------
+        tag : string
+            Hitomi.la tag
 
-    def getList(self, tag):  # example) tag="female:loli"
+        Returns
+        -------
+        returnList : dictionary
+            {
+                'title'  : title,
+                'updated': updated,
+                'id'     : id
+            }
+            
+        Example
+        ----------
+        Hitomi.getList("female:loli")
+        """
         input_url = "https://ltn.hitomi.la/tag/" + tag + "-all.atom"
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) '
