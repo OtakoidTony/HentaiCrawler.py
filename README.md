@@ -12,7 +12,7 @@ When you use this package, you don't need to any login to use this because this 
 - [x] **Danbooru**
 - [x] **Gelbooru**
 - [ ] **Hiyobi**
-- [ ] **E-hentai**
+- [x] **E-hentai**
 - [ ] **Pixiv**
 
 ## Legal?
